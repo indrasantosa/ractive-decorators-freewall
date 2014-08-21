@@ -62,7 +62,6 @@
 		var wall = freewallItemDecorator.parentNodes;
 		if(wall) {
 			wall.appendBlock(node);
-			wall.refresh();
 		} else {
 			throw "Freewall parentNodes is not defined";
 		}
