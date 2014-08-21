@@ -1,0 +1,21 @@
+{
+  "name": "ractive-decorators-freewall",
+  "version": "0.1.0",
+  "author": "Indra Santosa",
+  "main": "ractive-decorators-freewall.js",
+  "dependencies": {
+    "ractive": "^0.5.4",
+    "freewall": "~1.0.4"
+  },
+  "ignore": [
+    ".*",
+    "*.json",
+    "demo",
+    "grunt",
+    "node_modules",
+    "test",
+    "Gruntfile.js",
+    "index.html",
+    "README.md"
+  ]
+}

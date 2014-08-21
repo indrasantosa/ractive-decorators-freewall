@@ -1,0 +1,16 @@
+{
+	"name": "ractive-decorators-freewall",
+	"repo": "git://github.com/indrasantosa/ractive-decorators-freewall.git",
+	"description": "ractive-decorators-freewall",
+	"version": "0.1.0",
+	"keywords": [],
+	"dependencies": {
+		"ractivejs/ractive": "^0.5.4"
+	},
+	"development": {},
+	"license": "MIT",
+	"main": "ractive-decorators-freewall.js",
+	"scripts": [
+		"ractive-decorators-freewall.js"
+	]
+}
