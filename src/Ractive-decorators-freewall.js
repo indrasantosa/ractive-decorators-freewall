@@ -53,7 +53,7 @@
 		throw new Error( 'Could not find Ractive or freewall! It must be loaded before the ractive-decorators-freewall plugin' );
 	}
 
-}( typeof window !== 'undefined' ? window : this, function ( Ractive ) {
+}( typeof window !== 'undefined' ? window : this, function ( Ractive, freewall ) {
 
 	'use strict';
 
@@ -61,7 +61,8 @@
 	var freewallItemDecorator = function(node, content) {
 		var wall = freewallItemDecorator.parentNodes;
 		if(wall) {
-			wall.appendBlock(node);	
+			wall.appendBlock(node);
+			wall.refresh();
 		} else {
 			throw "Freewall parentNodes is not defined";
 		}
