@@ -36,21 +36,21 @@
 
 	// AMD environment
 	if ( typeof define === 'function' && define.amd ) {
-		define([ 'ractive' ], factory );
+		define([ 'ractive', 'freewall' ], factory );
 	}
 
 	// Common JS (i.e. node/browserify)
 	else if ( typeof module !== 'undefined' && module.exports && typeof require === 'function' ) {
-		factory( require( 'ractive' ) );
+		factory( require( 'ractive' ), require( 'freewall' ) );
 	}
 
 	// browser global
 	else if ( global.Ractive ) {
-		factory( global.Ractive );
+		factory( global.Ractive, global.freewall );
 	}
 
 	else {
-		throw new Error( 'Could not find Ractive! It must be loaded before the ractive-decorators-freewall plugin' );
+		throw new Error( 'Could not find Ractive or freewall! It must be loaded before the ractive-decorators-freewall plugin' );
 	}
 
 }( typeof window !== 'undefined' ? window : this, function ( Ractive ) {
@@ -58,5 +58,22 @@
 	'use strict';
 
 	/* plugin code goes here */
+	var freewallItemDecorator = function(node, content) {
+		var wall = freewallItemDecorator.parentNodes;
+		if(wall) {
+			wall.appendBlock(node);	
+		} else {
+			throw "Freewall parentNodes is not defined";
+		}
+		
+
+		return {
+			teardown: function() {}
+		}
+	};
+	freewallItemDecorator.parentNodes = null;
+	
+
+	Ractive.decorators.freewallItem = freewallItemDecorator;
 
 }));
